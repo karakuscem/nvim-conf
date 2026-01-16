@@ -1,6 +1,33 @@
 return {
     'neovim/nvim-lspconfig',
     pin = true, -- Pinned for Neovim 0.10.x compatibility
+    dependencies = {
+        -- Mason for managing LSP servers, DAP adapters, linters, formatters
+        {
+            "williamboman/mason.nvim",
+            config = function()
+                require("mason").setup({
+                    ui = {
+                        icons = {
+                            package_installed = "✓",
+                            package_pending = "➜",
+                            package_uninstalled = "✗"
+                        }
+                    }
+                })
+            end,
+        },
+        -- Automatically install LSPs configured in lspconfig
+        {
+            "williamboman/mason-lspconfig.nvim",
+            pin = true, -- Pinned for Neovim 0.10.x compatibility
+            config = function()
+                require("mason-lspconfig").setup({
+                    automatic_installation = false, -- We configure servers manually
+                })
+            end,
+        },
+    },
 }
 -- return {
 --     'neovim/nvim-lspconfig',
