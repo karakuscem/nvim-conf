@@ -204,6 +204,8 @@ This config uses standard Vim notation for keybinds:
 | Mode | Keybind | Action |
 |------|---------|--------|
 | n | `<leader>s` | Replace word under cursor (on line) |
+| n | `<leader>S` | Replace word under cursor (entire file) |
+| n | `<leader>Sc` | Replace word under cursor (entire file, with confirmation) |
 | n | `<leader>x` | Make file executable |
 | n | `<leader>rl` | Reload Neovim config |
 | n | `<leader>u` | Toggle Undotree |
