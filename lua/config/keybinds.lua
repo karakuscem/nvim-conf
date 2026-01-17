@@ -38,6 +38,12 @@ vim.keymap.set("n", "<leader>cc", "<cmd>!php-cs-fixer fix % --using-cache=no<cr>
 -- Replace all instances of whatever is under cursor (on line)
 vim.keymap.set("n", "<leader>s", [[:s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 
+-- Replace all instances of whatever is under cursor (entire file)
+vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
+
+-- Replace all instances with confirmation (entire file)
+vim.keymap.set("n", "<leader>Sc", [[:%s/\<<C-r><C-w>\>//gcI<Left><Left><Left><Left>]])
+
 -- make file executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
