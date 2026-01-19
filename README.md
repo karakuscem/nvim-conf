@@ -185,8 +185,6 @@ This config uses standard Vim notation for keybinds:
 
 | Mode | Keybind | Action |
 |------|---------|--------|
-| n | `<C-j>` | Next quickfix item |
-| n | `<C-k>` | Previous quickfix item |
 | n | `<leader>cn` | Next quickfix item |
 | n | `<leader>cp` | Previous quickfix item |
 | n | `<leader>co` | Open quickfix list |
@@ -214,6 +212,46 @@ This config uses standard Vim notation for keybinds:
 | n | `<leader>dg` | Generate documentation (DoGe) |
 | n | `<leader>cc` | PHP CS Fixer on current file |
 | n | `<leader>li` | LSP health check |
+
+### Split Screen
+
+| Mode | Keybind | Action |
+|------|---------|--------|
+| n | `<leader>sv` | Split vertical |
+| n | `<leader>sh` | Split horizontal |
+| n | `<leader>se` | Make splits equal size |
+| n | `<leader>sx` | Close current split |
+| n | `<C-h>` | Move to left split |
+| n | `<C-l>` | Move to right split |
+| n | `<C-k>` | Move to upper split |
+| n | `<C-j>` | Move to lower split |
+| n | `<C-Up>` | Increase split height |
+| n | `<C-Down>` | Decrease split height |
+| n | `<C-Left>` | Decrease split width |
+| n | `<C-Right>` | Increase split width |
+
+### Tabs
+
+| Mode | Keybind | Action |
+|------|---------|--------|
+| n | `<leader>tn` | New tab |
+| n | `<leader>tx` | Close tab |
+| n | `<leader>tl` | Next tab |
+| n | `<leader>th` | Previous tab |
+| n | `<leader>tf` | Open current buffer in new tab |
+
+### Terminal
+
+| Mode | Keybind | Action |
+|------|---------|--------|
+| n | `<leader>tt` | Open terminal |
+| n | `<leader>tv` | Open terminal in vertical split |
+| n | `<leader>ts` | Open terminal in horizontal split |
+| t | `<Esc><Esc>` | Exit terminal mode |
+| t | `<C-h>` | Move to left split from terminal |
+| t | `<C-l>` | Move to right split from terminal |
+| t | `<C-k>` | Move to upper split from terminal |
+| t | `<C-j>` | Move to lower split from terminal |
 
 ---
 
@@ -326,6 +364,7 @@ This config uses standard Vim notation for keybinds:
 - `i` = **Insert mode** - For typing text (press `i`, `a`, or `o` to enter)
 - `v` = **Visual mode** - For selecting text (press `v` to enter)
 - `x` = **Visual block mode** - For column selection (press `Ctrl+v` to enter)
+- `t` = **Terminal mode** - For interacting with embedded terminal
 - `s` = **Select mode** - Similar to visual (rarely used)
 
 > 💡 **Remember:** Most keybinds in this config work in Normal mode. If a keybind isn't working, press `Esc` first!
@@ -427,6 +466,10 @@ This config uses standard Vim notation for keybinds:
 | **Start debugging** | Space d c | Normal |
 | **Organize imports (Java)** | Space j o | Normal |
 | **Run test (Java)** | Space j t | Normal |
+| **Open terminal** | Space t t | Normal |
+| **Close terminal** | Esc Esc, then Space s x | Terminal → Normal |
+| **New tab** | Space t n | Normal |
+| **Close tab** | Space t x | Normal |
 
 ---
 

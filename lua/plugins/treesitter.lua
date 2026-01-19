@@ -35,6 +35,7 @@ return {
                     "vim",
                     "vimdoc",
                     "c",
+                    "asm",
                     "dockerfile",
                     "gitignore",
                     "astro",

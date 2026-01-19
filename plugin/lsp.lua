@@ -194,9 +194,20 @@ lspconfig.hls.setup({
     },
 })
 
+-- Assembly (asm-lsp)
+lspconfig.asm_lsp.setup({
+    capabilities = caps,
+    filetypes = { 'asm', 'nasm', 'vmasm' },
+})
+
 -- Filetype overrides
 vim.filetype.add({
     extension = {
         h = 'c',
+        s = 'asm',
+        S = 'asm',
+        asm = 'asm',
+        nasm = 'nasm',
+        inc = 'asm',
     },
 })

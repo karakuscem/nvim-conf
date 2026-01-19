@@ -19,10 +19,6 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- sometimes in insert mode, control-c doesn't exactly work like escape
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
--- add binds for Control J/K to scroll thru quickfix list
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
-
 -- What the heck is Ex mode?
 vim.keymap.set("n", "Q", "<nop>")
 
@@ -70,3 +66,50 @@ vim.keymap.set("n", "<leader>mm", "<cmd>make<CR>")
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- Split screen keybindings
+vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Split vertical" })
+vim.keymap.set("n", "<leader>sh", "<cmd>split<CR>", { desc = "Split horizontal" })
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+
+-- Navigate between splits
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left split" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right split" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper split" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower split" })
+
+-- Override netrw mappings so split navigation works in file explorer
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    callback = function()
+        local opts = { buffer = true, silent = true }
+        vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+        vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+        vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+        vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+    end,
+})
+
+-- Resize splits
+vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Increase split height" })
+vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Decrease split height" })
+vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Decrease split width" })
+vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Increase split width" })
+
+-- Tab keybindings
+vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "New tab" })
+vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close tab" })
+vim.keymap.set("n", "<leader>tl", "<cmd>tabnext<CR>", { desc = "Next tab" })
+vim.keymap.set("n", "<leader>th", "<cmd>tabprev<CR>", { desc = "Previous tab" })
+vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
+
+-- Terminal keybindings
+vim.keymap.set("n", "<leader>tt", "<cmd>terminal<CR>", { desc = "Open terminal" })
+vim.keymap.set("n", "<leader>tv", "<cmd>vsplit | terminal<CR>", { desc = "Open terminal in vertical split" })
+vim.keymap.set("n", "<leader>ts", "<cmd>split | terminal<CR>", { desc = "Open terminal in horizontal split" })
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Move to left split from terminal" })
+vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Move to right split from terminal" })
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Move to upper split from terminal" })
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Move to lower split from terminal" })
