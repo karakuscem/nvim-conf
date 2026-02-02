@@ -147,6 +147,20 @@ lspconfig.nil_ls.setup({
     }
 })
 
+-- Go
+lspconfig.gopls.setup({
+    capabilities = caps,
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+            gofumpt = true,
+        },
+    },
+})
+
 -- Rust
 lspconfig.rust_analyzer.setup({
     capabilities = caps,

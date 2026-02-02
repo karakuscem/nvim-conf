@@ -1,6 +1,10 @@
 -- KEYBINDS
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
+
+-- File explorer (nvim-tree)
+vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>", { desc = "Find file in explorer" })
+vim.keymap.set("n", "<leader>cd", vim.cmd.Ex) -- fallback to netrw
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Alt Up/Down in vscode
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

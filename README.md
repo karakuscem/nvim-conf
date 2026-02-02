@@ -110,6 +110,7 @@ This config uses standard Vim notation for keybinds:
 | Quit without saving | `:q!` then Enter | Normal |
 | Undo | `u` | Normal |
 | Redo | `Ctrl+r` | Normal |
+| Undo line (revert all changes on current line) | `U` | Normal |
 | Search for text | `/searchterm` then Enter | Normal |
 | Next search result | `n` | Normal |
 | Previous search result | `N` | Normal |
@@ -164,6 +165,29 @@ This config uses standard Vim notation for keybinds:
 | n | `N` | Previous search result (centered) |
 | n | `Q` | Disabled (no Ex mode) |
 | i | `<C-c>` | Escape insert mode |
+
+### File Explorer (nvim-tree)
+
+| Mode | Keybind | Action |
+|------|---------|--------|
+| n | `<leader>ee` | Toggle file explorer |
+| n | `<leader>ef` | Find current file in explorer |
+
+**Inside nvim-tree:**
+
+| Key | Action |
+|-----|--------|
+| `Enter` / `o` | Open file/folder |
+| `v` | Open in vertical split |
+| `s` | Open in horizontal split |
+| `a` | Create new file/folder |
+| `d` | Delete |
+| `r` | Rename |
+| `x` | Cut |
+| `c` | Copy |
+| `p` | Paste |
+| `R` | Refresh |
+| `?` | Show help |
 
 ### Moving Lines
 
